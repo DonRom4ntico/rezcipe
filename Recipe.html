@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Langhap Sarap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+
+</head>
+<body class="bg-yellow-400 font-sans">
+
+
+  <!-- Main Navigation -->
+  <div class="flex items-center justify-between px-6 py-4 border-b shadow">
+    <!-- Logo -->
+    <div class="flex items-center space-x-2">
+      <img src="logo.png" alt="Logo" class="h-8 w-8">
+      <span class="text-xl font-bold text-red-500">Langhap Sarap</span>
+    </div>
+
+
+    <div class="hidden md:flex space-x-6 items-center font-medium text-white">
+
+      <a href="#">All Recipes</a>
+    
+      <!-- Course Dropdown -->
+      <div x-data="{ open: false }" class="relative">
+        <button @click="open = !open" class="flex items-center space-x-1 hover:underline">
+          <span>Course</span>
+          <span>▾</span>
+        </button>
+        <div x-show="open" @click.away="open = false" class="absolute bg-white text-black mt-2 rounded shadow-lg w-40 z-50">
+          <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Appetizer</a>
+          <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Main Course</a>
+          <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Dessert</a>
+        </div>
+      </div>
+    
+      <!-- Ingredient Dropdown -->
+      <div x-data="{ open: false }" class="relative">
+        <button @click="open = !open" class="flex items-center space-x-1 hover:underline">
+          <span>Ingredient</span>
+          <span>▾</span>
+        </button>
+        <div x-show="open" @click.away="open = false" class="absolute bg-white text-black mt-2 rounded shadow-lg w-40 z-50">
+          <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Chicken</a>
+          <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Pork</a>
+          <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Vegetables</a>
+        </div>
+      </div>
+    
+      <!-- Type Dropdown -->
+      <div x-data="{ open: false }" class="relative">
+        <button @click="open = !open" class="flex items-center space-x-1 hover:underline">
+          <span>Type</span>
+          <span>▾</span>
+        </button>
+        <div x-show="open" @click.away="open = false" class="absolute bg-white text-black mt-2 rounded shadow-lg w-40 z-50">
+          <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Traditional</a>
+          <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Modern Twist</a>
+          <a href="#" class="block px-4 py-2 hover:bg-yellow-100">Street Food</a>
+        </div>
+      </div>
+    
+    </div>
+    
+
+    <!-- Search Bar -->
+    <div class="flex items-center border rounded-full px-4 py-2 bg-gray-100">
+      <input type="text" placeholder="Search..." class="bg-gray-100 outline-none w-32 md:w-48">
+      <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1010.5 18.5a7.5 7.5 0 006.15-1.85z" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="padding-left-20 bg-white text-gray-900 py-12 px-6 md:flex items-center justify-between">
+    <div class="max-w-xl">
+      <h2 class="text-black-200 text-3xl md:text-4xl font-extrabold mb-4">Browse for Delicious Filipino Recipes</h2>
+      <p class="text-grey-800 text-lg mb-6">Discover recipes that turn everyday meals into unforgettable moments. Your next favorite dish is just a click away.</p>
+      <a href="#" class="inline-block bg-yellow-400 text-blue-900 font-bold px-6 py-3 rounded-md hover:bg-yellow-500 transition">
+        EXPLORE RECIPES →
+      </a>
+    </div>
+    <div class="mt-8 md:mt-0 md:w-1/2">
+      <img src="1herosection.jpg" alt="Beef Stew" class="rounded-lg shadow-lg">
+    </div>
+  </div>
+
+  <!-- Featured Recipes -->
+<section class="bg-yellow-400 px-6 py-10">
+  <div class="flex items-center justify-between mb-6">
+    <h2 class="text-2xl font-extrabold text-white">Featured Recipes</h2>
+    <a href="#" class="text-sm font-bold text-blue-900 hover:underline">BROWSE ALL →</a>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <!-- Recipe 1 -->
+    <div class="group">
+      <a href="#" class="block">
+        <img src="talong1.jpg" alt="Stuffed Eggplant"
+          class="w-full h-[200px] object-cover rounded-lg mb-2 transition duration-300 group-hover:blur-sm">
+      </a>
+      <a href="#" class="block">
+        <h3 class="font-semibold text-lg group-hover:underline transition">Stuffed Eggplant</h3>
+      </a>
+      <p class="text-sm text-gray-800 mb-2">A savory eggplant dish filled with seasoned meat and veggies, pan-fried to perfection.</p>
+      <a href="#" title="view" data-recipe="Stuffed Eggplant"
+   class="inline-block bg-white text-yellow-600 font-semibold px-4 py-1 rounded-full border border-yellow-600 hover:bg-yellow-500 hover:text-white transition">
+   View Recipe
+</a>
+
+    </div>
+
+    <!-- Recipe 2 -->
+    <div class="group">
+      <a href="#" class="block">
+        <img src="chili1.jpg" alt="Chili Oil"
+          class="w-full h-[200px] object-cover rounded-lg mb-2 transition duration-300 group-hover:blur-sm">
+      </a>
+      <a href="#" class="block">
+        <h3 class="font-semibold text-lg group-hover:underline transition">Chili Oil</h3>
+      </a>
+      <p class="text-sm text-gray-800 mb-2">Spicy and aromatic oil infused with chili flakes and garlic—perfect for dipping or drizzling.</p>
+      <a href="#" title="view" data-recipe="Chili Oil"
+   class="inline-block bg-white text-yellow-600 font-semibold px-4 py-1 rounded-full border border-yellow-600 hover:bg-yellow-500 hover:text-white transition">
+   View Recipe
+</a>
+
+    </div>
+
+    <!-- Recipe 3 -->
+    <div class="group">
+      <a href="#" class="block">
+        <img src="porkchop.jpg" alt="Pork Chop"
+          class="w-full h-[200px] object-cover rounded-lg mb-2 transition duration-300 group-hover:blur-sm">
+      </a>
+      <a href="#" class="block">
+        <h3 class="font-semibold text-lg group-hover:underline transition">Pork Chop</h3>
+      </a>
+      <p class="text-sm text-gray-800 mb-2">Juicy grilled pork chops marinated in classic Filipino flavors, served with pickled veggies.</p>
+      <a href="#" title="view" data-recipe="Pork Chop"
+   class="inline-block bg-white text-yellow-600 font-semibold px-4 py-1 rounded-full border border-yellow-600 hover:bg-yellow-500 hover:text-white transition">
+   View Recipe
+</a>
+
+    </div>
+
+    <!-- Recipe 4 -->
+    <div class="group">
+      <a href="#" class="block">
+        <img src="dobo.jpg" alt="Adobo"
+          class="w-full h-[200px] object-cover rounded-lg mb-2 transition duration-300 group-hover:blur-sm">
+      </a>
+      <a href="#" class="block">
+        <h3 class="font-semibold text-lg group-hover:underline transition">Adobo</h3>
+      </a>
+      <p class="text-sm text-gray-800 mb-2">Tender meat simmered in soy sauce, vinegar, garlic, and bay leaves—a true Filipino staple.</p>
+      <a href="#" title="view" data-recipe="Adobo"
+   class="inline-block bg-white text-yellow-600 font-semibold px-4 py-1 rounded-full border border-yellow-600 hover:bg-yellow-500 hover:text-white transition">
+   View Recipe
+</a>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white px-6 py-12 mt-16">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+    
+    <!-- Contact Info -->
+    <div class="space-y-3">
+      <h4 class="text-xl font-semibold">Contact Us</h4>
+      <p>Email: langhapsarap@davao.sti.edu.ph.com</p>
+      <p>Phone: +63 912 345 6789</p>
+      <p>Address: Di Makita City, Hanapin Street.</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="space-y-3">
+      <h4 class="text-xl font-semibold">Follow Us</h4>
+      <div class="flex space-x-6 text-2xl">
+        <a href="#" class="hover:text-yellow-400 transition" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="hover:text-yellow-400 transition" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-yellow-400 transition" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="hover:text-yellow-400 transition" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="space-y-2 text-sm md:text-right">
+      <h4 class="text-xl font-semibold">© 2025 Filipino Kitchen</h4>
+      <p>All rights reserved.</p>
+      <p>Made with love in the Philippines</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- Modal -->
+<div id="recipeModal" class="fixed inset-0 z-50 hidden bg-black bg-opacity-50 flex items-center justify-center overflow-auto">
+  <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-2xl p-6 relative max-h-[90vh] overflow-y-auto">
+    <button id="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+    <h2 id="modalTitle" class="text-2xl font-bold mb-4">Recipe Title</h2>
+    <img id="modalImage" src="" alt="" class="w-full h-64 object-cover rounded mb-4">
+    <p id="modalDescription" class="text-gray-700 mb-4">Recipe description goes here.</p>
+    <h3 class="text-lg font-semibold mb-2">Ingredients:</h3>
+    <ul id="modalIngredients" class="list-disc list-inside text-gray-700 mb-4"></ul>
+    <h3 class="text-lg font-semibold mb-2">Instructions:</h3>
+    <ol id="modalInstructions" class="list-decimal list-inside text-gray-700 space-y-2"></ol>
+  </div>
+</div>
+
+
+<script>
+  const recipes = {
+  "Stuffed Eggplant": {
+    title: "Stuffed Eggplant",
+    img: "talong1.jpg",
+    desc: "A hearty Filipino dish made from boiled and pan-fried eggplant dipped in egg.",
+    ingredients: [
+      "4 large eggplants",
+      "2 eggs, beaten",
+      "Salt and pepper to taste",
+      "Cooking oil"
+    ],
+    instructions: [
+      "Boil eggplants until tender, then drain and let them cool.",
+      "Peel the skin and flatten the flesh using a fork.",
+      "Season with salt and pepper.",
+      "Dip the eggplants in beaten egg.",
+      "Fry in hot oil until golden brown on both sides.",
+      "Serve hot with rice."
+    ]
+  },
+  "Chili Oil": {
+    title: "Chili Oil",
+    img: "chili1.jpg",
+    desc: "A spicy aromatic oil perfect for drizzling on dishes or using as dipping sauce.",
+    ingredients: [
+      "1 cup vegetable oil",
+      "2 tbsp garlic (minced)",
+      "1 tbsp shallots (optional)",
+      "2 tbsp chili flakes",
+      "1 tsp paprika",
+      "1 tsp salt",
+      "1/2 tsp sugar",
+      "1 tsp soy sauce (optional)"
+    ],
+    instructions: [
+      "In a small saucepan, heat oil over medium-low heat.",
+      "Add garlic and shallots. Stir frequently until golden and fragrant (about 3–4 minutes).",
+      "Remove from heat.",
+      "In a heatproof bowl, mix chili flakes, paprika, salt, and sugar.",
+      "Carefully pour the hot oil over the spice mix. Stir to combine.",
+      "Let it cool, then add soy sauce if desired.",
+      "Transfer to a jar and store at room temperature or refrigerate."
+    ]
+  },
+  "Pork Chop": {
+    title: "Pork Chop",
+    img: "porkchop.jpg",
+    desc: "Juicy grilled pork chops marinated in classic Filipino flavors.",
+    ingredients: [
+      "4 pork chops",
+      "1/4 cup soy sauce",
+      "2 tbsp calamansi or lemon juice",
+      "3 cloves garlic, minced",
+      "1 tsp ground black pepper",
+      "1 tbsp sugar"
+    ],
+    instructions: [
+      "In a bowl, combine soy sauce, calamansi juice, garlic, pepper, and sugar.",
+      "Marinate pork chops for at least 1 hour (or overnight for best flavor).",
+      "Grill or pan-fry until fully cooked and browned on both sides.",
+      "Serve with pickled veggies and rice."
+    ]
+  },
+  "Adobo": {
+  title: "Adobo",
+  img: "dobo.jpg",
+  desc: "Tender meat simmered in soy sauce, vinegar, garlic, and bay leaves—a true Filipino staple.",
+  
+  ingredients: [
+    "1 kg chicken or pork (or a combination), cut into serving pieces",
+    "1/2 cup soy sauce",
+    "1/3 cup vinegar",
+    "6 cloves garlic, crushed",
+    "2–3 bay leaves",
+    "1 tsp whole black peppercorns",
+    "1 tbsp brown sugar (optional)",
+    "1 cup water",
+    "Salt to taste",
+    "Cooking oil"
+  ],
+  instructions: [
+    "In a bowl, combine meat, soy sauce, garlic, and bay leaves. Marinate for at least 30 minutes (or overnight for more flavor).",
+    "Heat a pot with a little oil. Sauté garlic until fragrant, then add the marinated meat (reserve marinade).",
+    "Brown the meat on all sides, then pour in the marinade along with vinegar, peppercorns, sugar (if using), and water.",
+    "Bring to a boil *without stirring*, then lower heat and simmer for 30–40 minutes or until the meat is tender.",
+    "Taste and adjust salt or sugar if needed. Let the sauce reduce to your desired thickness.",
+    "Serve hot with steamed rice."
+  ]
+}
+
+
+
+};
+
+document.querySelectorAll('a[title="view"]').forEach(button => {
+    button.addEventListener('click', e => {
+      e.preventDefault();
+      const recipeKey = button.getAttribute('data-recipe');
+      const recipe = recipes[recipeKey];
+
+      document.getElementById('modalTitle').textContent = recipe.title;
+      document.getElementById('modalImage').src = recipe.img;
+      document.getElementById('modalImage').alt = recipe.title;
+      document.getElementById('modalDescription').textContent = recipe.desc;
+
+      const ingredientsList = document.getElementById('modalIngredients');
+      ingredientsList.innerHTML = '';
+      if (recipe.ingredients) {
+        recipe.ingredients.forEach(ingredient => {
+          const li = document.createElement('li');
+          li.textContent = ingredient;
+          ingredientsList.appendChild(li);
+        });
+      }
+
+      const instructionsList = document.getElementById('modalInstructions');
+      instructionsList.innerHTML = '';
+      if (recipe.instructions) {
+        recipe.instructions.forEach(step => {
+          const li = document.createElement('li');
+          li.textContent = step;
+          instructionsList.appendChild(li);
+        });
+      }
+
+      document.getElementById('recipeModal').classList.remove('hidden');
+    });
+  });
+
+  // Add an event listener to the close button
+  document.getElementById('closeModal').addEventListener('click', () => {
+    document.getElementById('recipeModal').classList.add('hidden');
+  });
+
+
+</script>
+
+
+
+
+
+  
+
+</body>
+</html>
